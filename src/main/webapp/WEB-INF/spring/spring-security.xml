@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.5.xsd">
+
+	<bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" 	id="bcryptPasswordEncoder"></bean>
+
+	
+	<security:http security="none" pattern="/**"/>
+	
+
+
+</beans>
+
+<!-- 보안관련 Security bean은 따로 등록하려고 만든 파일 
+만든이유: password 암호화 하려고! (controller에서)
+서버 실행 시 바로 실행되어야하니까 web.xml에 <context-param> 하위에 추가 등록
+/WEB-INF/spring/spring-security.xml -->

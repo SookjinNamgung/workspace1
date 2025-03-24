@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  <configuration>
+  
+  	<settings>
+  		<setting name="jdbcTypeForNull" value="NULL" />
+  		<!-- snake to camel -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 쿼리 결과가 null인 경우 누락되지 않도록 -->
+		<setting name="callSettersOnNulls" value="true"/>
+        <!-- 쿼리에 보내는 파라미터가 null인 경우 에러 발생 방지 -->
+  	</settings>
+  	
+  	<typeAliases>
+  		<!--  <typeAlias type="com.workspace.anuual.board.model.vo.Member" alias="member"/> -->
+  	</typeAliases>
+  	
+  	<!-- 
+  		environments, dataSource → DB연결정보 
+  		→ DB등록정보는 서버가 실행됨과 동시에 이루어져야 하는 작업
+  		서버켜지면 바로 읽히는 root-context.xml에 기술할 예정
+  		★ Spring Bean 등록 ☆
+  	-->
+  	
+  	<mappers>
+  		<mapper resource="/mapper/board-mapper.xml" />
+  	</mappers>
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  </configuration>
