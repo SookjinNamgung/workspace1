@@ -15,18 +15,15 @@
   	</settings>
   	
   	<typeAliases>
-  		<!--  <typeAlias type="com.workspace.anuual.board.model.vo.Member" alias="member"/> -->
+  		<typeAlias type="com.workspace.annual.model.dto.AnnualRequestDto" alias="AnnualRequestDto"/>
+  		<typeAlias type="com.workspace.member.model.vo.Member" alias="Member"/>
   	</typeAliases>
   	
-  	<!-- 
-  		environments, dataSource → DB연결정보 
-  		→ DB등록정보는 서버가 실행됨과 동시에 이루어져야 하는 작업
-  		서버켜지면 바로 읽히는 root-context.xml에 기술할 예정
-  		★ Spring Bean 등록 ☆
-  	-->
-  	
+
   	<mappers>
   		<mapper resource="/mapper/board-mapper.xml" />
+  		<mapper resource="/mapper/member-mapper.xml" />
+  		<mapper resource="/mapper/annual-mapper.xml" />
   	</mappers>
   	
   	
