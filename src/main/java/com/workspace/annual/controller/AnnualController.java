@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.workspace.annual.model.service.AnnualService;
 import com.workspace.annual.model.vo.AnnualRequest;
@@ -54,9 +56,33 @@ public class AnnualController {
 	}
 	
 	// 연차 신청 양식
-
+	@GetMapping("/annual/insert")
+	public String annualInsertFrom() {
+		return "annual/insert-form";
+	}
 	
 	// 연차 등록
+	@PostMapping("/annual/insert")
+	public String insertAnnualRequest(@ModelAttribute AnnualRequest annualRequest, HttpSession session, Model model) {
+		
+		Member loginUser = (Member) session.getAttribute("loginUser");
+		
+		if(loginUser == null) {
+			return "redirect:/login";	//  로그인 경로 확인 필요
+		}
+		
+		annualRequest.setCmpyNo(loginUser.getCmpyNo());
+		annualRequest.setUserNo(loginUser.getUserNo());
+		
+		int result = annualService.insertAnnualRequest(annualRequest);
+		if (result > 0)  {
+			model.addAttribute("msg", "신청이 완료되었습니다.");
+		} else {
+			model.addAttribute("msg", "처리중 오류가 발생했습니다. 다시 시도해주세요");
+		}
+		
+		return "redirect:my-list";
+	}
 	
 	// 연차 취소 신청 및 취소
 	

@@ -8,11 +8,13 @@ import org.apache.ibatis.annotations.Param;
 import com.workspace.annual.model.vo.AnnualRequest;
 
 @Mapper
-public interface AnnualRequestDao {
+public interface AnnualMapper {
 	
 	// 개인 연차 조회 (회사 + 사용자 기준)
 	List<AnnualRequest> findByCmpyAndUser(@Param("cmpyNo") String cmpyNo, @Param("userNo") Long userNo);
 	
 	// 전체 연차 조회 (회사 기준)
 	List<AnnualRequest> findByCmpy(@Param("cmpyNo") String cmpyNo);
+
+	int insertAnnualRequest(AnnualRequest annualRequest);
 }

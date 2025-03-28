@@ -15,7 +15,7 @@
   	</settings>
   	
   	<typeAliases>
-  		<typeAlias type="com.workspace.annual.model.dto.AnnualRequestDto" alias="AnnualRequestDto"/>
+  		<typeAlias type="com.workspace.annual.model.vo.AnnualRequest" alias="AnnualRequest"/>
   		<typeAlias type="com.workspace.member.model.vo.Member" alias="Member"/>
   	</typeAliases>
   	

@@ -11,5 +11,7 @@ public interface AnnualService {
 
 	// 개인 연차 조회
 	List<AnnualRequest> getUserAnnuals(String cmpyNo, Long userNo);
+
+	int insertAnnualRequest(AnnualRequest annualRequest);
 	
 }
